@@ -12,110 +12,140 @@
 <div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/19b92afd-044e-4ca4-abcd-58410943ae36"></div>
 
 ## 프로젝트 소개
-Bita 서비스는 음성 채팅 구현을 위한 WebRtc와 CRDT 구현을 위한 WebSocket을 활용하여 페어프로그래밍과 멀티프로그래밍을 웹사이트에서 진행할 수 있도록 구현한 웹 IDE 서비스입니다.
+다른 사람의 검증된 여행 일정을 가져와 자신만의 여행 일정으로 손쉽게 작성할 수 있는 여행 일정 플래너입니다.
+
+MBTI와 지역 필터링으로 사용자 맞춤 여행 일정을 제공하며, 장소마다 방문한 사용자의 MBTI 통계를 볼 수 있어 자신의 취향에 맞는 여행 장소를 선택할 수 있습니다.
+
+
 
 ## 시스템 아키텍처
-환경 문제로 생기는 에러를 방지하기위해 docker-compose를 미리 셋팅하여 개발하였고, 웹 서버 라우팅 기능을 위해 nginx를 사용했습니다.
+환경 문제로 생기는 에러를 방지하기 위해 docker-compose를 미리 셋팅하여 개발하였고, 웹 서버 리버스 프록시 역할과 보안 강화를 nginx와 certbot를 사용하여 구현하였습니다.
+
+프론트엔드 개발 시 사용한 기술 스택으로는 Next.js 14, 컴파일 단에서 타입 에러를 방지하기 위한 typescript, 전역 상태 관리를 편하게 하기 위한 jotai, 서버 상태 관리를 위한 react-query, css 프레임워크로 tailwindcss 및 공유 ui 컴포넌트인 shadcn/ui를 사용하였습니다. 지도 기능을 제공하기 위해 카카오 지도 api, google map api를 사용하였으며 드래그 앤 드랍을 위해 hello-pangea/dnd 라이브러리를 사용하였습니다.
+
+RDS의 Mysql과 사용자 정보를 빠르게 조회할 수 있도록 redis에 refresh-token을 저장했고, swagger를 이용하여 API 문서화를 수행함으로써, 프론트엔드와의 협업을 용이하게 하였습니다.
 
 
-프론트엔드 개발 시 사용한 기술스택으로는 react, 컴파일 단에서 타입 에러를 방지하기 위한 typescript, react 상태 관리를 편하게 하기 위한 redux, css프레임워크로 tailwindcss를 사용하였습니다.
-
-
-코드 컴파일 오픈 소스인 CodeX를 사용하여 컴파일 기능을 구현했고, 코드 저장하는 용도로 S3를 사용했습니다.
-
-
-사용자 정보를 빠르게 조회할 수 있도록 redis에 refresh-token을 저장했습니다.
-
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/326d8bea-7cd3-485f-bbf9-b94daf6e13cc"></div>
+<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/dcf2c030-63c5-4758-bb5a-9df9681222cf"></div>
+<br>
 
 
 ## TECH-STACKS
 
 |Frontend|Backend|Database&Storage|DevOps| 
 | :----: | :---: |   :---------:  | :--: |
-|<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white"><br><img src="https://img.shields.io/badge/Redux-764ABC?style=for-the-badge&logo=Redux&logoColor=white"><br><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white"><br><img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=for-the-badge&logo=Tailwind CSS&logoColor=white"><br>|<img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=Java&logoColor=white"><br><img src="https://img.shields.io/badge/Spring-37814A?style=for-the-badge&logo=Spring&logoColor=white"><br><img src="https://img.shields.io/badge/SpringBoot-85EA2D.svg?style=for-the-badge&logo=SpringBoot&logoColor=white"><br><img src="https://img.shields.io/badge/Swagger-38B832.svg?style=for-the-badge&logo=Swagger&logoColor=white">|<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><br><img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=for-the-badge&logo=Amazon RDS&logoColor=white"><br>|<img src="https://img.shields.io/badge/Amazon EC2 -FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white"><br><img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Amazon S3&logoColor=white"><br> |
+|<img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white"><br><img src="https://img.shields.io/badge/Jotai-764ABC?style=for-the-badge&logo=Jotai&logoColor=white"><br><img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&logo=ReactQuery&logoColor=white"><br><img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=TypeScript&logoColor=white">|<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"><br><img src="https://img.shields.io/badge/Spring-37814A?style=for-the-badge&logo=Spring&logoColor=white"><br><img src="https://img.shields.io/badge/SpringBoot-85EA2D.svg?style=for-the-badge&logo=SpringBoot&logoColor=white"><br><img src="https://img.shields.io/badge/Swagger-38B832.svg?style=for-the-badge&logo=Swagger&logoColor=white">|<img src="https://img.shields.io/badge/mysql-4479A1?style=for-the-badge&logo=mysql&logoColor=white"><br><img src="https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white"><br><img src="https://img.shields.io/badge/Amazon RDS-527FFF?style=for-the-badge&logo=Amazon RDS&logoColor=white"><br>|<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/><br><img src="https://img.shields.io/badge/Amazon EC2 -FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white"><br><img src="https://img.shields.io/badge/Amazon S3-569A31?style=for-the-badge&logo=Amazon S3&logoColor=white"><br> |
+<br>
 
 
 ## 문서
 
-### Linear
+### **Linear**
 
-부족한 개발 기간으로 Github-flow 브랜치 전략를 사용해서 협업하고 JIRA를 사용해서 1주단위로 스프린트를 관리했습니다.
 
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/b8bf501b-a6a1-4db5-8f35-2492cbedeed4"></div>
 
-### 피그마
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/bae58273-aad2-4683-9e18-d4cfc52ff8ea"></div>
+<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/ace69428-f05c-4e49-a7c4-11a36d4cb3b2"></div>
+<p>부족한 개발 기간으로 Github-flow 브랜치 전략를 사용하여 협업을 수행하였고, Linear를 사용해서 1주 단위로 스프린트를 관리하였습니다.</p>
+<br>
 
-### ERD
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/b8343992-ddf9-4957-9e2a-e42a53757f7b"></div>
+### **피그마**
+<div align="center"><img width="946" alt="피그마 사진" src="https://github.com/Just-Plan/.github/assets/73208914/9474f283-6a6b-489c-92e4-7b708e777dd8"></div>
+<br>
 
-### API 문서화
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/46791c0d-bc6d-45eb-8469-14b175402224"></div>
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/06f417fa-7eaf-4462-b15d-43f4387457ca"></div>
+### **ERD**
+<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/386eb232-e01b-4bb8-a8cb-188a41e986ff"></div>
+<br>
+
+### **API 문서화**
+<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/aa93f3cd-4c70-4e5d-93a9-95dbca52555c"></div>
+<p>프론트엔드와의 협업을 위해 swagger를 사용하여 API 문서화를 진행했습니다.</p>
+<br>
+
+
 
 
 ## 기능 소개
 
-![가계부](https://github.com/Just-Plan/.github/assets/83001865/3c82fbac-647a-45e8-a134-cca7f9149e1b)
-![드래그앤드롭](https://github.com/Just-Plan/.github/assets/83001865/3068f627-1682-4983-9e94-0ced06821c74)
-![마이페이지](https://github.com/Just-Plan/.github/assets/83001865/8a40a88c-7c5d-4c4c-a8e9-0eb034e6137b)
-![메인페이지필터링](https://github.com/Just-Plan/.github/assets/83001865/3a325094-9218-4e9c-aad1-c11a27d87eae)
-![일정 가져오기](https://github.com/Just-Plan/.github/assets/83001865/438288d3-0202-4e3e-a5a1-8091a3593c2c)
-![메모,장소상세](https://github.com/Just-Plan/.github/assets/83001865/5181d5e2-44f7-4e49-ae02-ae7e793e1ab6)
-![장소생성](https://github.com/Just-Plan/.github/assets/83001865/f0a8cdc6-afe9-440c-8aa1-c9f1b6572b2b)
-![플랜생성](https://github.com/Just-Plan/.github/assets/83001865/2ef51305-968b-4de2-af4f-0f8bb81a4112)
-![회원가입_로그인](https://github.com/Just-Plan/.github/assets/83001865/8fa4a73d-43b0-4d39-bb6c-3e0d368a0526)
-![mbti테스트](https://github.com/Just-Plan/.github/assets/83001865/c75e78b8-4bd1-42d3-babb-ed35ab2a6d67)
+### **회원가입/로그인**
 
 
-### 회원가입/로그인
-회원가입
-- 가입을 수행할 이메일을 입력받은 후, Gmail에서 제공하는 SMTP 서버를 이용하여 해당 이메일로 인증 메일을 발송합니다.
-- 메일에 포함된 URL에 접속하여 인증을 마친 뒤, 입력된 회원정보를 기반으로 회원가입이 수행됩니다.
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/8fa4a73d-43b0-4d39-bb6c-3e0d368a0526">
+<p>이메일 인증을 통한 회원가입을 제공하여 사용자를 인증하며, 회원 정보를 통해 회원/비회원 사용자 간의 접속할 수 있는 페이지를 구분하여 사용자에게 서비스를 제공합니다.</p>
+</div>
+<br>
 
-로그인
+### **mbti 테스트**
 
-- 이메일과 비밀번호를 입력받아 로그인을 수행합니다.
-- 존재하지 않는 이메일을 입력하거나, 틀린 비밀번호를 입력할 시 경고 문구를 띄웁니다.
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/4f8529f1-4cdd-4151-90f1-e859619ebc13"></div>
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/c75e78b8-4bd1-42d3-babb-ed35ab2a6d67">
+<p>사용자에게 잘 맞는 여행 플랜을 추천하고 장소의 MBTI 통계 정보를 제공하기 위해 사용자에게 여행 MBTI TEST를 실시하게 하여 사용자 맞춤 웹서비스를 제공합니다. </p>
+</div>
+<br>
 
-### 컨테이너 CRUD
-코드를 편집할 수 있는 컨테이너를 생성합니다. 컨테이너 생성 시 이름, 설명, 언어, 모드를 선택할 수 있습니다.
+### **메인페이지 필터링**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/3a325094-9218-4e9c-aad1-c11a27d87eae">
+<p>"나의 여행 플랜 찾기"에서 지역을 선택하여, 이에 해당하는 일정을 필터링하여 조회할 수 있으며,</p>
+<p>"MBTI 맞춤 여행 플랜"에서 MBTI를 선택하여, 해당 MBTI를 가진 작성자의 일정을 필터링하여 조회할 수 있습니다.</p></div>
+<br>
+
+### **일정 생성**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/2ef51305-968b-4de2-af4f-0f8bb81a4112">
+<p>로그인이 되어있고, MBTI 테스트 결과가 존재한다면 일정 이름, 장소, 해시태그, 날짜 등을 작성하여 일정을 생성할 수 있습니다.</p>
+</div>
+<br>
+
+### **장소 생성**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/f0a8cdc6-afe9-440c-8aa1-c9f1b6572b2b">
+<p>"장소 추가하기" 버튼을 통해 장소를 추가할 수 있습니다.</p>
+<p>장소 키워드를 검색하여 여행 지역 내의 장소를 조회할 수 있으며, 추가된 장소의 위치를 지도에서 확인할 수 있습니다.</p>
+<p>장소를 클릭하여 장소에 대한 상세 정보를 확인할 수 있고, 다른 이용자가 작성한 댓글을 조회할 수 있습니다.</p>
+</div>
+<br>
+
+### **일정 가져오기**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/438288d3-0202-4e3e-a5a1-8091a3593c2c">
+<p>다른 사람의 검증된 일정을 가져오기 버튼을 통해 내 일정으로 만들 수 있습니다.</p>
+<p>가져온 일정은 수정이 가능하여, 자신만의 일정으로 커스터마이징하여 손쉽게 일정을 만들 수 있습니다.</p>
+</div>
+<br>
+
+### **일정 수정**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/3068f627-1682-4983-9e94-0ced06821c74">
+<p>드래그 앤 드랍을 통해 사용자가 원하는 장소를 원하는 날짜에 추가 및 삭제하여 일정을 수정할 수 있습니다. </p>
+<p>장소의 위치를 날짜에 맞게 추가 및 삭제할 수 있도록 사용자에게 맵을 제공합니다. </p>
+
+</div>
+<br>
 
 
-컨테이너 이름은 ...버튼을 눌러 수정할 수 있으며 컨테이너 삭제도 가능합니다.
+### **가계부**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/3c82fbac-647a-45e8-a134-cca7f9149e1b">
+<p>가계부를 ON/OFF 하여 작성할 수 있습니다.</p>
+<p>현금, 카드를 구분하여 예산을 작성할 수 있으며, 교통, 음식, 쇼핑, 등의 카테고리 별로 지출 내역을 기록할 수 있습니다.</p>
+</div>
+<br>
+
+### **메모, 장소 상세 페이지**
+
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/5181d5e2-44f7-4e49-ae02-ae7e793e1ab6">
+<p>장소에 대한 정보를 보여주거나 해당 장소에 많이간 MBTI 정보 그리고 댯글등을 사용자에게 제공합니다.장소별로 구매할 물품, 준비물같은 간단한 메모를 할 수 있습니다.</p>
+<p>일정 내에 해당 장소가 있을 때는 메모를 추가하여 자신만의 정보들을 적어 놓을 수 있습니다.</p>
+<p>장소 상세 페이지에서는 장소별 MBTI 통계, 댓글과 운영 시간을 확인할 수 있습니다.</p>
+</div>
+<br>
 
 
-내 컨테이너는 내가 만든 컨테이너, 공유된 컨테이너는 상대방이 초대한 컨테이너가 보입니다.
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/efa74aa5-0f03-4213-ab5e-101aa5f5bd57"></div>
+### **마이페이지**
 
-### 페어 프로그래밍
-페어 프로그래밍 네비게이터와 드라이버가 서로 음성 채팅을 통하여 소통하며 코드를 수정하는 모드 입니다. 
-
-
-우측 상단에 버튼을 통하여 드라이버와 네비게이터를 변경하며 진행할 수 있습니다.
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/648f10d0-ee18-49e8-86c7-d1e8e8bc917c"></div>
-
-### 멀티 프로그래밍
-멀티 프로그래밍 여러명의 사용자가 한 컨테이너에 접속하여 코드를 동시편집할 수 있는 모드입니다.
-
-
-편집하는 사용자는 위쪽에 이름이 표시됩니다.
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/524ca670-e3ce-4752-9cea-4317e8b862eb"></div>
-위 두개의 모드는 컴파일을 통하여 에러나 코드 결과를 아래쪽에 출력해줍니다.
-
-### 음성 채팅
-WebRTC (Web Real-Time Communication)는 웹 브라우저 간에 플러그인의 도움 없이 서로 통신할 수 있도록 설계된 API입니다.
-
-
-WebRTC 이용을 위해 시그널링 서버를 구현하여 SDP(서로의 음성,영상, 비디오 등 스트리밍 규약을 맞추는 과정), ICE(서로 통신 할 수 있는 최적의 경로를 찾을 수 있도록 도움)등의 정보를 교환합니다.
-
-
-저희는 이러한 WebRTC를 이용하여 음성 채팅을 구현하였습니다.
-<div align="center"><img src="https://github.com/Break-it-all/.github/assets/83001865/41466533-25ae-4fb0-913e-f636a4d50f7a"></div>
-
-
+<div align="center"><img src="https://github.com/Just-Plan/.github/assets/83001865/8a40a88c-7c5d-4c4c-a8e9-0eb034e6137b">
+<p>사용자 정보를 토대로 관련된 여행 일정이나 가계부, 회원 정보 수정 기능을 제공합니다.</p>
+</div>
+<br>
 
 
 ## 팀 소개
@@ -130,26 +160,32 @@ WebRTC 이용을 위해 시그널링 서버를 구현하여 SDP(서로의 음성
 </a>
 </td>
 <td width="100" align="center">
+<a href="https://github.com/dbswl701">
+<img src="https://github.com/Just-Plan/.github/assets/73208914/5e265e35-77a7-4e65-ba11-09039ef33d16" width="60" height="60">
+</a>
+</td>
+<td width="100" align="center">
 <a href="https://github.com/rnignon">
 <img src="https://avatars.githubusercontent.com/u/86004439?v=4" width="60" height="60">
 </a>
 </td>
 <td width="100" align="center">
-<a href="https://github.com/wlstnam">
-<img src="https://avatars.githubusercontent.com/u/127458907?v=4" width="60" height="60">
+<a href="https://github.com/">
+<img src="https://avatars.githubusercontent.com/u/142382002?v=4" width="60" height="60">
 </a>
 </td>
 <td width="100" align="center">
 <a href="https://github.com/hstla">
-<img src="https://user-images.githubusercontent.com/97827316/215991535-aa0d5aeb-363c-41a7-a114-c1448d58d9f1.png"" width="60" height="60">
+<img src="https://user-images.githubusercontent.com/97827316/215991535-aa0d5aeb-363c-41a7-a114-c1448d58d9f1.png" width="60" height="60">
 </a>
 </td>
 </tr>
 <tr>
 <th>Name</th>
 <td width="100" align="center">최민우</td>
+<td width="100" align="center">강윤지</td>
 <td width="100" align="center">김민형</td>
-<td width="100" align="center">남진수</td>
+<td width="100" align="center">최윤정</td>
 <td width="100" align="center">황현성</td>
 </tr>
 <tr>
@@ -158,13 +194,16 @@ WebRTC 이용을 위해 시그널링 서버를 구현하여 SDP(서로의 음성
 Frontend<br>
 </td>
 <td width="150" align="center">
-Frontend Backend<br>
+Frontend<br>
 </td>
 <td width="150" align="center">
-Frontend Backend<br>
+Backend<br>
 </td>
 <td width="150" align="center">
-Frontend Backend<br>
+Backend<br>
+</td>
+<td width="150" align="center">
+Backend<br>
 </td>
 </tr>
 <tr>
@@ -175,13 +214,18 @@ Frontend Backend<br>
 </a>
 </td>
 <td width="100" align="center">
+<a href="https://github.com/dbswl701">
+<img src="http://img.shields.io/badge/choiminwoo98-green?style=social&logo=github"/>
+</a>
+</td>
+<td width="100" align="center">
 <a href="https://github.com/rnignon">
 <img src="http://img.shields.io/badge/rnignon-green?style=social&logo=github"/>
 </a>
 </td>
 <td width="100" align="center">
-<a href="https://github.com/wlstnam">
-<img src="http://img.shields.io/badge/wlstnam-green?style=social&logo=github"/>
+<a href="https://github.com/ChoiYoonJ">
+<img src="http://img.shields.io/badge/ChoiYoonJ-green?style=social&logo=github"/>
 </a>
 </td>
 <td width="100" align="center">
@@ -192,4 +236,3 @@ Frontend Backend<br>
 </tr>
 </tbody>
 </table>
-

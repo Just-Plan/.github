@@ -9,7 +9,7 @@
 
 
 # JUST-PLAN
-<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/2ca74625-c02d-4df9-9a09-4638068cc156"></div>
+<div align="center"><img src="https://github.com/Break-it-all/frontend/assets/83001865/19b92afd-044e-4ca4-abcd-58410943ae36"></div>
 
 ## 프로젝트 소개
 Bita 서비스는 음성 채팅 구현을 위한 WebRtc와 CRDT 구현을 위한 WebSocket을 활용하여 페어프로그래밍과 멀티프로그래밍을 웹사이트에서 진행할 수 있도록 구현한 웹 IDE 서비스입니다.

@@ -215,7 +215,7 @@ Backend<br>
 </td>
 <td width="100" align="center">
 <a href="https://github.com/dbswl701">
-<img src="http://img.shields.io/badge/choiminwoo98-green?style=social&logo=github"/>
+<img src="http://img.shields.io/badge/dbswl701-green?style=social&logo=github"/>
 </a>
 </td>
 <td width="100" align="center">
